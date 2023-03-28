@@ -3,6 +3,10 @@ import { Header } from "../components/Header";
 import { FormEvent, useState } from "react";
 import { api } from "../services/api";
 import { useCookies } from "react-cookie";
+import { FormInput } from "../components/FormInput";
+
+import { At, LockKey } from "phosphor-react";
+import { FormSubmitButton } from "../components/FormSubmitButton";
 
 export function Login() {
   const [email, setEmail] = useState("");
@@ -30,37 +34,52 @@ export function Login() {
   }
 
   return (
-    <div>
-      <Header />
+    <div className="bg-[#576cd6] h-screen">
+      <main className="flex flex-col justify-center h-full items-center">
+        <h1 className="font-nunito font-bold text-3xl mb-10 text-white tracking-wider">
+          Login
+        </h1>
 
-      <h1>Login</h1>
+        <form className="flex flex-col" onSubmit={handleLogin}>
+          <div className="flex items-center flex-col gap-5">
+            <FormInput
+              icon={
+                <At
+                  weight="bold"
+                  className="text-2xl text-main-blue absolute top-1/2 -translate-y-1/2 left-3"
+                />
+              }
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              type="email"
+              id="email"
+              placeholder="Email"
+            />
+            <FormInput
+              icon={
+                <LockKey
+                  weight="bold"
+                  className="text-2xl text-main-blue absolute top-1/2 -translate-y-1/2 left-3"
+                />
+              }
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              type="password"
+              id="password"
+              placeholder="Password"
+            />
+          </div>
 
-      <form onSubmit={handleLogin}>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            type="email"
-            id="email"
-            placeholder="Email..."
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            type="password"
-            id="password"
-            placeholder="Password..."
-          />
-        </div>
+          <FormSubmitButton buttonTitle="Login" hoverTitle="Login" />
+        </form>
 
-        <button type="submit">Login</button>
-      </form>
-
-      <Link to="/register">Don't have an account yet? Register</Link>
+        <Link
+          className="font-nunito mt-8 font-medium text-white"
+          to="/register"
+        >
+          Don't have an account yet? Register
+        </Link>
+      </main>
     </div>
   );
 }
