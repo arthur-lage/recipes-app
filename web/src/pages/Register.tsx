@@ -4,6 +4,9 @@ import { useCookies } from "react-cookie";
 import { Link, useNavigate } from "react-router-dom";
 
 import { api } from "../services/api";
+import { FormSubmitButton } from "../components/FormSubmitButton";
+import { FormInput } from "../components/FormInput";
+import { At, LockKey, User } from "phosphor-react";
 
 export function Register() {
   const [email, setEmail] = useState("");
@@ -32,47 +35,64 @@ export function Register() {
     }
   }
   return (
-    <div>
-      <Header />
+    <div className="bg-app-bg h-screen">
+      <main className="flex flex-col items-center justify-center h-full">
+        <h1 className="font-nunito font-bold text-3xl mb-10 text-white tracking-wider">
+          Register
+        </h1>
 
-      <h1>Register</h1>
+        <form className="flex flex-col" onSubmit={handleRegister}>
+          <div className="flex flex-col items-center gap-5">
+            <FormInput
+              icon={
+                <User
+                  weight="bold"
+                  className="text-2xl text-main-blue absolute top-1/2 -translate-y-1/2 left-3"
+                />
+              }
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              type="text"
+              id="username"
+              placeholder="Username"
+            />
 
-      <form onSubmit={handleRegister}>
-        <div>
-          <label htmlFor="username">Username</label>
-          <input
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            type="text"
-            id="username"
-            placeholder="Username..."
-          />
-        </div>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            type="email"
-            id="email"
-            placeholder="Email..."
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            type="password"
-            id="password"
-            placeholder="Password..."
-          />
-        </div>
+            <FormInput
+              icon={
+                <At
+                  weight="bold"
+                  className="text-2xl text-main-blue absolute top-1/2 -translate-y-1/2 left-3"
+                />
+              }
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              type="email"
+              id="email"
+              placeholder="Email"
+            />
 
-        <button type="submit">Register</button>
-      </form>
+            <FormInput
+              icon={
+                <LockKey
+                  weight="bold"
+                  className="text-2xl text-main-blue absolute top-1/2 -translate-y-1/2 left-3"
+                />
+              }
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              type="password"
+              id="password"
+              placeholder="Password"
+            />
+          </div>
 
-      <Link to="/login">Already have an account? Login</Link>
+          <FormSubmitButton hoverTitle="Register" buttonTitle="Register" />
+        </form>
+
+        <Link className="font-nunito mt-8 font-medium text-white" to="/login">
+          Already have an account? Login
+        </Link>
+      </main>
     </div>
   );
 }

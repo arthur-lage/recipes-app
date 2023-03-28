@@ -10,6 +10,7 @@ export function FormInput({ icon, ...rest }: FormInputType) {
       {icon}
 
       <input
+        autoComplete="off"
         {...rest}
         className="outline-none font-bold font-nunito bg-transparent placeholder:text-main-blue text-main-blue pr-5 absolute top-0 left-0 bottom-0 right-0 pl-12"
       />

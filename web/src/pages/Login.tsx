@@ -34,7 +34,7 @@ export function Login() {
   }
 
   return (
-    <div className="bg-[#576cd6] h-screen">
+    <div className="bg-app-bg h-screen">
       <main className="flex flex-col justify-center h-full items-center">
         <h1 className="font-nunito font-bold text-3xl mb-10 text-white tracking-wider">
           Login
