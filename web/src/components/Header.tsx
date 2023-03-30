@@ -1,32 +1,26 @@
 import { Link } from "react-router-dom";
 
-export function Header({ isLoggedIn = true }) {
+export function Header() {
   return (
-    <header>
-      <Link to="/">Recipes</Link>
+    <header className="flex shadow-lg items-center justify-between px-14 py-6 bg-gradient-to-br from-header-gradient-start to-header-gradient-end">
+      <Link
+        className="duration-150 transition-all hover:text-zinc-200 text-xl font-nunito font-bold text-white"
+        to="/"
+      >
+        Recipes
+      </Link>
 
-      {isLoggedIn ? (
-        <ul>
-          <li>
-            <Link to="/recipes/new">New Recipe</Link>
-          </li>
-          <li>
-            <Link to="/recipes/saved">Saved Recipes</Link>
-          </li>
-          <li>
-            <button>Log out</button>
-          </li>
-        </ul>
-      ) : (
-        <ul>
-          <li>
-            <Link to="/register">Register</Link>
-          </li>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-        </ul>
-      )}
+      <ul className="flex items-center gap-12">
+        <li className="header-item">
+          <Link to="/recipes/new">New Recipe</Link>
+        </li>
+        <li className="header-item">
+          <Link to="/recipes/saved">Saved Recipes</Link>
+        </li>
+        <li className="header-item">
+          <button>Log out</button>
+        </li>
+      </ul>
     </header>
   );
 }

@@ -4,8 +4,8 @@ import { useCookies } from "react-cookie";
 import { Link, useNavigate } from "react-router-dom";
 
 import { api } from "../services/api";
-import { FormSubmitButton } from "../components/FormSubmitButton";
-import { FormInput } from "../components/FormInput";
+import { FormSubmitButton } from "../components/auth/FormSubmitButton";
+import { FormInput } from "../components/auth/FormInput";
 import { At, LockKey, User } from "phosphor-react";
 
 export function Register() {

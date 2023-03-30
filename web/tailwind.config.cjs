@@ -15,6 +15,8 @@ module.exports = {
         "input-gradient-end": "#8897e2",
         "not-found-gradient-start": "#8a97e4",
         "not-found-gradient-end": "#4d56a7",
+        "header-gradient-start": "#546FB8",
+        "header-gradient-end": "#677DDA",
         "submit-gradient-start": "#283853",
         "submit-gradient-end": "#3c5299",
         "app-bg": "#576cd6",

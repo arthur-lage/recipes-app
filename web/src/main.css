@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* body {
-  color: #8a97e4;
-  color: #4d56a7;
-} */
+.header-item {
+  @apply text-white font-nunito font-semibold transition-all duration-150 hover:text-zinc-200;
+}

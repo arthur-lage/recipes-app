@@ -3,10 +3,10 @@ import { Header } from "../components/Header";
 import { FormEvent, useState } from "react";
 import { api } from "../services/api";
 import { useCookies } from "react-cookie";
-import { FormInput } from "../components/FormInput";
+import { FormInput } from "../components/auth/FormInput";
 
 import { At, LockKey } from "phosphor-react";
-import { FormSubmitButton } from "../components/FormSubmitButton";
+import { FormSubmitButton } from "../components/auth/FormSubmitButton";
 
 export function Login() {
   const [email, setEmail] = useState("");
